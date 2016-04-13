@@ -68,7 +68,7 @@ while (tries < 3)
   }
   else
   {
-    alert('Unrecognized.  Try again.');
+    alert('Unrecognized response.  Try again.');
     tries++;
   }
 }
