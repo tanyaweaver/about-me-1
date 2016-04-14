@@ -5,7 +5,7 @@ alert('Good day!  It is time to get to know Sean Champagne better.');
 
 var userName = prompt('Before you get to know Sean Champagne better, what is your name?');
 alert('Cool.  Nice to meet you ' + userName + '.  Let us begin!');
-
+console.log(userName);
 var answer1 = prompt('Does Sean have 2 dachshunds?').toUpperCase();
 counter += 1;
 if (answer1 === 'Y' || answer1 === 'YES') {
@@ -15,7 +15,7 @@ if (answer1 === 'Y' || answer1 === 'YES') {
 console.log('User Response: ' + answer1 + ' Correct Response:  YES');
 
 var answer2 = prompt('Is Sean married?').toUpperCase();
-counter +=1;
+counter += 1;
 if (answer2 === 'Y' || answer2 === 'YES')
 {
   alert('Correct, ' + userName + '!  He is!');
@@ -55,13 +55,13 @@ counter++;
 while (tries < 3)
 {
   var answer6 = prompt('How many states has Sean visited?');
-  if (answer6 === '49')
+  if (parseInt(answer6) === 49)
   {
-    alert('Well done!')
+    alert('Well done!');
     tries += 5;
     answerCorrect++;
   }
-  else if (parseInt(answer6) < 49 || answer6 > 49)
+  else if (isNaN(parseInt(answer6)) < 49 || answer6 > 49)
   {
     alert('Try again.');
     tries++;
@@ -71,9 +71,28 @@ while (tries < 3)
     alert('Unrecognized response.  Try again.');
     tries++;
   }
+  console.log('User Response: ' + answer6 + ' Correct Response:  49');
 }
 
+var answer7Array = ['WSECU', 'SMCU', 'VERITY CREDIT UNION', 'GESA CREDIT UNION'];
+var attempts = 0;
+counter++;
 
+while (attempts < 5) {
+  var answer7 = prompt('Where has Sean worked?').toUpperCase();
+  for (var i = 0; i < answer7Array.length; i++) {
+    console.log(i);
+    if (answer7 === answer7Array[i]) {
+      alert('You are correct!');
+      i = answer7Array.length;
+      attempts = 5;
+      answerCorrect++;
+    }
+  }
+  alert('Sorry, ' + userName + ' please try again.');
+  attempts++;
+};
+console.log('User Response: ' + answer7 + ' Correct Response: WSECU, SMCU, Verity Credit Union, or Gesa Credit Union');
+alert('Possible correct answers:  WSECU, SMCU, VERITY CREDIT UNION, GESA CREDIT UNION.');
 
-
-alert('You got ' + answerCorrect + ' correct out of ' + counter + ', well done ' + userName + '!');
+alert('You got ' + answerCorrect + ' correct out of ' + counter + ', well done ' + userName + '!  Thanks for playing!');
